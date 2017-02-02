@@ -80,6 +80,24 @@ reward_t MontezumaRevengeSettings::getReward() const {
 /* is an action part of the minimal set? */
 bool MontezumaRevengeSettings::isMinimal(const Action &a) const {
 
+    switch (a) { 
+        case PLAYER_A_NOOP:
+        case PLAYER_A_FIRE:
+        case PLAYER_A_UP:
+        case PLAYER_A_RIGHT:
+        case PLAYER_A_LEFT:
+        case PLAYER_A_DOWN:
+        case PLAYER_A_RIGHTFIRE:
+        case PLAYER_A_LEFTFIRE:
+            return true;
+        default:
+            return false;
+    }   
+}
+
+/* is an action part of the minimal set? NO IT'S NOT! **ORIGINAL**
+bool MontezumaRevengeSettings::isMinimal(const Action &a) const {
+
     switch (a) {
         case PLAYER_A_NOOP:
         case PLAYER_A_FIRE:
@@ -104,7 +122,7 @@ bool MontezumaRevengeSettings::isMinimal(const Action &a) const {
             return false;
     }   
 }
-
+*/
 
 /* reset the state of the game */
 void MontezumaRevengeSettings::reset() {
